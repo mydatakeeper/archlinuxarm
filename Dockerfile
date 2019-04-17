@@ -7,7 +7,9 @@ RUN set -xe \
     && pacman-key --init \
     && pacman-key --populate archlinuxarm \
     && pacman --noconfirm -Syu \
-    && rm -fr /var/lib/pacman/sync /var/cache/pacman/pkg /etc/pacman.d/gnupg
+    && pacman-db-upgrade \
+    && update-ca-trust \
+    && pacman -Scc --noconfirm
 
 CMD ["/bin/bash"]
 

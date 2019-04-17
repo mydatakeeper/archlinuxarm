@@ -50,18 +50,18 @@ matrix:
     - env:
       - ARCH=arm
       - CARCH=am33x
-    - env:
-      - ARCH=arm
-      - CARCH=odroid-c1
+    # - env:
+    #   - ARCH=arm
+    #   - CARCH=odroid-c1
     - env:
       - ARCH=arm
       - CARCH=mirabox
     - env:
       - ARCH=arm
       - CARCH=smileplug
-    - env:
-      - ARCH=arm
-      - CARCH=cubox
+    # - env:
+    #   - ARCH=arm
+    #   - CARCH=cubox
     - env:
       - ARCH=arm
       - CARCH=d3plug
@@ -74,18 +74,18 @@ matrix:
     - env:
       - ARCH=arm
       - CARCH=odroid-xu
-    - env:
-      - ARCH=arm
-      - CARCH=odroid-xu3
+    # - env:
+    #   - ARCH=arm
+    #   - CARCH=odroid-xu3
     - env:
       - ARCH=arm
       - CARCH=usbarmory
-    - env:
-      - ARCH=arm
-      - CARCH=imx6-cubox
-    - env:
-      - ARCH=arm
-      - CARCH=utilite
+    # - env:
+    #   - ARCH=arm
+    #   - CARCH=imx6-cubox
+    # - env:
+    #   - ARCH=arm
+    #   - CARCH=utilite
     - env:
       - ARCH=arm
       - CARCH=armv7
@@ -95,12 +95,12 @@ matrix:
     - env:
       - ARCH=arm
       - CARCH=rpi-2
-    - env:
-      - ARCH=arm
-      - CARCH=veyron
-    - env:
-      - ARCH=arm
-      - CARCH=zedboard
+    # - env:
+    #   - ARCH=arm
+    #   - CARCH=veyron
+    # - env:
+    #   - ARCH=arm
+    #   - CARCH=zedboard
     - env:
       - ARCH=aarch64
       - CARCH=aarch64

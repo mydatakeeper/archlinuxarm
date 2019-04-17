@@ -1,7 +1,7 @@
 FROM scratch
-ADD ArchLinuxARM-aarch64-latest.tar.gz /
+ADD ArchLinuxARM-%CARCH%-latest.tar.gz /
 
-COPY qemu-aarch64-static /usr/bin/qemu-aarch64-static
+COPY qemu-%ARCH%-static /usr/bin/qemu-%ARCH%-static
 
 RUN set -xe \
     && pacman-key --init \

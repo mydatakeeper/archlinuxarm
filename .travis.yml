@@ -18,6 +18,8 @@ before_script:
   - gpg --verify ArchLinuxARM-${CARCH}-latest.tar.gz.sig ArchLinuxARM-${CARCH}-latest.tar.gz
   - wget -nv https://github.com/multiarch/qemu-user-static/releases/download/v3.1.0-3/qemu-${ARCH}-static -O qemu-${ARCH}-static
   - chmod +x qemu-${ARCH}-static
+  - sed -e "s|%ARCH%|${ARCH}|g" -e "s|%CARCH%|${CARCH}|g" -i 'Dockerfile'
+
 
 script:
   - docker build -t mydatakeeper/archlinuxarm:${CARCH} .
@@ -33,6 +35,6 @@ matrix:
     - env:
       - CARCH=aarch64
       - ARCH=aarch64
-#    - env:
-#      - CARCH=armv7
-#      - ARCH=arm
+    - env:
+      - CARCH=armv7
+      - ARCH=arm

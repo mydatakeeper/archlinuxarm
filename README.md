@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Mydatakeeper/archlinuxarm.svg?branch=master)](https://travis-ci.org/Mydatakeeper/archlinuxarm)
+[![Build Status](https://travis-ci.org/mydatakeeper/archlinuxarm.svg?branch=master)](https://travis-ci.org/mydatakeeper/archlinuxarm)
 
 [![ArchlinuxARM](https://archlinuxarm.org/public/images/alarm.png)](https://archlinuxarm.org/public/images/alarm.png)
 # ArchlinuxARM unofficial docker images

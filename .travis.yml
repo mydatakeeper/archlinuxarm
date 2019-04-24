@@ -18,7 +18,7 @@ before_script:
 - chmod +x qemu-${ARCH}-static
 - sed -e "s|%ARCH%|${ARCH}|g" -e "s|%CARCH%|${CARCH}|g" -i 'Dockerfile'
 script:
-- docker build -t mydatakeeper/archlinuxarm:${CARCH} .
+- docker build --squash -t mydatakeeper/archlinuxarm:${CARCH} .
 deploy:
   provider: script
   script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

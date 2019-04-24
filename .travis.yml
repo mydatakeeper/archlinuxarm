@@ -17,6 +17,8 @@ before_script:
   -O qemu-${ARCH}-static
 - chmod +x qemu-${ARCH}-static
 - sed -e "s|%ARCH%|${ARCH}|g" -e "s|%CARCH%|${CARCH}|g" -i 'Dockerfile'
+- echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
+- sudo service docker restart
 script:
 - docker build --squash -t mydatakeeper/archlinuxarm:${CARCH} .
 deploy:

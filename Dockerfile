@@ -7,7 +7,8 @@ RUN set -xe \
     && pacman-key --init \
     && pacman-key --populate archlinuxarm \
     && pacman --noconfirm --needed -Syu gzip pacman sed systemd \
-    && mapfile -t packages < <(pacman -Qqn | grep -Ev "(^gzip$|^pacman$|^sed$|^systemd$)") \
+    && array=$(pacman -Qqn | grep -Ev "(^gzip$|^pacman$|^sed$|^systemd$)") \
+    && mapfile -t packages <<< $array \
     && pacman --noconfirm -Rnsu "${packages[@]}" \
     && pacman-db-upgrade \
     && update-ca-trust \

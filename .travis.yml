@@ -20,87 +20,31 @@ before_script:
 - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
 - sudo service docker restart
 script:
-- docker build --squash -t mydatakeeper/archlinuxarm:${CARCH} .
+- docker build --squash -t mydatakeeper/archlinuxarm:${TAG} .
 deploy:
   provider: script
   script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    && docker push mydatakeeper/archlinuxarm:${CARCH}
+    && docker push mydatakeeper/archlinuxarm:${TAG}
   on:
     branch: master
 matrix:
   include:
   - env:
     - ARCH=arm
-    - CARCH=arietta
-  - env:
-    - ARCH=arm
-    - CARCH=kirkwood
-  - env:
-    - ARCH=arm
     - CARCH=armv5
-  - env:
-    - ARCH=arm
-    - CARCH=mmp
+    - TAG=arm
   - env:
     - ARCH=arm
     - CARCH=rpi
-  - env:
-    - ARCH=arm
-    - CARCH=am33x
-  - env:
-    - ARCH=arm
-    - CARCH=mirabox
-  - env:
-    - ARCH=arm
-    - CARCH=smileplug
-  - env:
-    - ARCH=arm
-    - CARCH=d3plug
-  - env:
-    - ARCH=arm
-    - CARCH=odroid-x
-  - env:
-    - ARCH=arm
-    - CARCH=odroid
-  - env:
-    - ARCH=arm
-    - CARCH=odroid-xu
-  - env:
-    - ARCH=arm
-    - CARCH=usbarmory
+    - TAG=armv6h
   - env:
     - ARCH=arm
     - CARCH=armv7
-  - env:
-    - ARCH=arm
-    - CARCH=armv7-chromebook
-  - env:
-    - ARCH=arm
-    - CARCH=rpi-2
+    - TAG=armv7h
   - env:
     - ARCH=aarch64
     - CARCH=aarch64
-  - env:
-    - ARCH=aarch64
-    - CARCH=aarch64-chromebook
-  - env:
-    - ARCH=aarch64
-    - CARCH=odroid-c2
-  - env:
-    - ARCH=aarch64
-    - CARCH=odroid-n2
-  - env:
-    - ARCH=aarch64
-    - CARCH=oak
-  - env:
-    - ARCH=aarch64
-    - CARCH=dragonboard410c
-  - env:
-    - ARCH=aarch64
-    - CARCH=rpi-3
-  - env:
-    - ARCH=aarch64
-    - CARCH=gru
+    - TAG=aarch64
 env:
   global:
   - secure: JX3BDRu4OKhaRNvCuWeE7fvi7W6AFS+Z62HTFOaw7fU0gYJ9LBgSLPnAWm58yEe//ucUEzQFJIncEAgm95x7QiluGRVA6SjmaSGX5WPDgbzDsyCF4IYPDubRVmHFB9VJiQ1wrE2H0N3PeJ27mRYQ0lD9e83hTB2ayVT0P4chV3BuHaX/bmoyU6AuT31BzIfTgyeYh333aNhgcUzlok5Q4hvAGMHYTOpccju7rKpDrGO/F49VW/H3pS/oSNjDb3Y+HEb+rY95cS3e9wFynzC5BNh1lTPYKAZ8vo07H3DlAg39YgFE5pwyJiaXggB+1bgBJshPS5XafT22iUfnsnAKkUDIGD8l1yMaZ98c1rY6l4OJbVI65elC1ngb7P7Gr3L3hzsBfox5n1LOcFT7+u3pMQYgggYtDQSRmZBNnRc0xT9r6ZpUrle6vEevzGVnFEp9TQPAreDAjhasAwuC12u14s4UCE1uWCAe1vJW2tMnICQFSSEFIgfQM+f0nyIvHuasJuDLhjQJK+qQaMC18j19+6ciIT/1nYEepntFIw5Pxoog5ka1uyiYQf9mr/EJKNIwoNeLdWjMk5Y50um2CKCjSFDmhIbQTxiSpcxQBzC+kOeT0lSlQdi6X5+UsuMzooAbwdEE30M95AH4JrswJ5beN4iteHpSe3EblvUGtMje+Wg=

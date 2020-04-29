@@ -9,12 +9,8 @@ RUN set -xe \
     && pacman -Syu --noconfirm --needed file gawk grep gzip licenses pacman procps-ng sed systemd tar \
     && pacman -D --noconfirm --asdeps $(pacman -Qqn) \
     && pacman -D --noconfirm --asexplicit file gawk grep gzip licenses pacman procps-ng sed systemd tar \
-    && while true; do \
-        PKGS=$(pacman -Qdtq) \
-        && if [ "$(echo "$PKGS" | wc -w)" -eq 0 ]; then \
-            break; \
-        fi \
-        && pacman -Rsnu --noconfirm $PKGS; \
+    && while PKGS=$(pacman -Qdtq); do \
+        pacman -Rsnu --noconfirm $PKGS; \
     done \
     && pacman-db-upgrade \
     && update-ca-trust \

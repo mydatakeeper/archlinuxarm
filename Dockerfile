@@ -11,7 +11,7 @@ RUN set -xe \
     && pacman -D --noconfirm --asexplicit file gawk grep gzip licenses pacman procps-ng sed systemd tar \
     && while true; do \
         PKGS=$(pacman -Qdtq) \
-        && if [ -z "$PKGS" ]; then \
+        && if [ "$(echo "$PKGS" | wc -w)" -eq 0 ]; then \
             break; \
         fi \
         && pacman -Rsnu --noconfirm $PKGS; \
